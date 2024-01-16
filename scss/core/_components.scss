@@ -1,0 +1,38 @@
+.loading {
+    display: none;
+}
+
+.btn {
+    @include formatText(DB, var(--fz-text-btn), var(--lh-text-btn), var(--ls-text-bt), var(--white-cl));
+    text-transform: uppercase;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    background-color: var(--prim-cl);
+    padding: 0 32px;
+    border-radius: 80px;
+
+    &.--higher {
+        height: 70px;
+    }
+
+    &.--gray {
+        background-color: rgba(255, 255, 255, 0.10);
+    }
+}
+
+.textbox {
+    .heading {
+        &.--lv1 {
+            @include formatText(DB, var(--fz-h1), var(--lh-h1), var(--ls-h1), var(--white-cl));
+        }
+
+        &.--lv2 {
+            @include formatText(DB, var(--fz-h2), var(--lh-h2), var(--ls-h2), var(--white-cl));
+        }
+    }
+
+    &.--align-center {
+        text-align: center;
+    }
+}

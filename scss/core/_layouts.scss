@@ -1,0 +1,46 @@
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+
+    body {
+        width: 100%;
+        max-width: var(--max-w-page);
+        margin: auto;
+        @include formatText(DR, var(--fz-bd1), var(--lh-bd1), var(--ls-bd1), var(--white-cl));
+        position: relative;
+
+        &.--disable-scroll {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-w-container);
+            padding-right: var(--pd-container);
+            padding-left: var(--pd-container);
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .main {
+            position: relative;
+
+            section {
+                &.--ptb {
+                    padding: var(--pd--section) 0;
+                }
+
+                &.--pt {
+                    padding-top: var(--pd--section);
+                }
+
+                &.--pb {
+                    padding-bottom: var(--pd--section);
+                }
+            }
+        }
+
+
+    }
+}

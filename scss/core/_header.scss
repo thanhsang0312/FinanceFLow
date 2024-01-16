@@ -1,0 +1,47 @@
+.header {
+    height: 100px;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
+
+    &__content {
+        display: flex;
+        height: 100%;
+
+        &--logo {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding-right: 32px;
+            border-right: 1px solid var(--deep-blue);
+
+            a {
+                display: flex;
+            }
+        }
+
+        &--nav {
+            display: flex;
+            align-items: center;
+            margin-left: 19px;
+
+            li {
+                a {
+                    text-transform: uppercase;
+                    @include formatText(DM, var(--fz-text-mn), var(--lh-text-mn), var(--ls-text-mn), var(--white-cl));
+                    padding: 5px 14px;
+                }
+            }
+        }
+    }
+
+    &__btn {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+}
