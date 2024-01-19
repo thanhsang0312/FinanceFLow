@@ -52,3 +52,36 @@ window.addEventListener('load', function () {
     loadingPage();
 })
 
+function handleUserSay() {
+    let item = document.querySelector('.users__say');
+    const userElement = document.querySelectorAll('.users__say--item');
+    let flickity = new Flickity(item, {
+        cellAlign: 'center',
+        contain: true,
+        groupCells: 2,
+        prevNextButtons: false,
+        on: {
+            ready: function () {
+                console.log('Flickity is ready');
+            },
+            change: function (index) {
+                console.log('Slide changed to' + index);
+            }
+        }
+    });
+
+}
+handleUserSay();
+
+function handleHeader() {
+    window.addEventListener('scroll', function () {
+        let coordY = window.scrollY;
+        if (coordY > document.querySelector('.hero__img').offsetTop) {
+            document.querySelector('.header').classList.add('--bg');
+        }
+        else {
+            document.querySelector('.header').classList.remove('--bg');
+        }
+    })
+}
+handleHeader();

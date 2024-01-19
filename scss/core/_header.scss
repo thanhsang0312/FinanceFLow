@@ -1,5 +1,16 @@
 .header {
-    height: 100px;
+    height: var(--height-header);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 8;
+    padding: 21px 0;
+    @include durationTime(0.3s);
+
+    &.--bg {
+        background-color: var(--black-cl);
+    }
 
     .container {
         display: flex;
@@ -30,10 +41,57 @@
             margin-left: 19px;
 
             li {
+                position: relative;
+
                 a {
                     text-transform: uppercase;
                     @include formatText(DM, var(--fz-text-mn), var(--lh-text-mn), var(--ls-text-mn), var(--white-cl));
                     padding: 5px 14px;
+
+                    &::after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        left: 14px;
+                        bottom: 5px;
+                        height: 1px;
+                        width: calc(100% - 28px);
+                        background-color: var(--white-cl);
+                        transform: scaleX(0);
+                        transform-origin: right;
+                        @include durationTime(0.5s);
+                        transition-property: transform;
+                    }
+
+                    &.active {
+                        // color: var(--white-cl);
+                        position: relative;
+
+                        &::after {
+                            transform: scaleX(1);
+                            transform-origin: left;
+                        }
+                    }
+
+                    &:hover {
+                        &::after {
+                            transform: scaleX(1);
+                            transform-origin: left;
+                        }
+                    }
+                }
+
+                &:not(:first-child) {
+                    a {
+                        position: relative;
+
+                        &:hover {
+                            &::after {
+                                transform: scaleX(1);
+                                transform-origin: left;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -43,5 +101,12 @@
         height: 100%;
         display: flex;
         align-items: center;
+
+        .btn {
+            &:hover {
+                background-color: var(--white-cl);
+                color: var(--prim-cl);
+            }
+        }
     }
 }

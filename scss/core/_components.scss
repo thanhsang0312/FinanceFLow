@@ -3,7 +3,7 @@
 }
 
 .btn {
-    @include formatText(DB, var(--fz-text-btn), var(--lh-text-btn), var(--ls-text-bt), var(--white-cl));
+    @include formatText(DB, var(--fz-text-btn), var(--lh-text-btn), var(--ls-text-btn), var(--white-cl));
     text-transform: uppercase;
     height: 56px;
     display: flex;
@@ -11,28 +11,120 @@
     background-color: var(--prim-cl);
     padding: 0 32px;
     border-radius: 80px;
+    width: fit-content;
+    @include durationTime(0.3s);
 
     &.--higher {
         height: 70px;
     }
 
-    &.--gray {
+    &.--grey {
         background-color: rgba(255, 255, 255, 0.10);
     }
+
+    &.--white {
+        background-color: var(--white-cl);
+        color: var(--prim-cl);
+        margin-top: 32px;
+    }
+
+
+
+
 }
 
 .textbox {
-    .heading {
-        &.--lv1 {
-            @include formatText(DB, var(--fz-h1), var(--lh-h1), var(--ls-h1), var(--white-cl));
-        }
 
-        &.--lv2 {
-            @include formatText(DB, var(--fz-h2), var(--lh-h2), var(--ls-h2), var(--white-cl));
-        }
-    }
 
     &.--align-center {
         text-align: center;
+        max-width: 50%;
+        margin: 0 auto;
+
+        .heading {
+            margin-bottom: 13px;
+        }
+    }
+
+    &.--align-left {
+        .heading {
+            margin-bottom: 20px;
+        }
+    }
+
+    &.--space-between {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .button {
+        display: flex;
+        gap: 28px;
+        margin-top: 42px;
+    }
+}
+
+.heading {
+    &.--lv1 {
+        @include formatText(DB, var(--fz-h1), var(--lh-h1), var(--ls-h1), var(--white-cl));
+        white-space: nowrap;
+    }
+
+    &.--lv2 {
+        @include formatText(DB, var(--fz-h2), var(--lh-h2), var(--ls-h2), var(--white-cl));
+    }
+
+    &.--lv3 {
+        @include formatText(DB, var(--fz-label), var(--lh-label), var(--ls-label));
+        text-transform: uppercase;
+    }
+
+    &.--lv5 {
+        @include formatText(DB, var(--fz-bd2), var(--lh-text-tag), 0.8px);
+        text-transform: uppercase;
+    }
+}
+
+.apps__lists {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 33px;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+
+        &--icon {
+            display: flex;
+        }
+    }
+}
+
+.author {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    &__avatar {
+        aspect-ratio: 1/1;
+        overflow: hidden;
+        border-radius: 50%;
+
+        img {
+            @include images;
+        }
+    }
+
+    &__info {
+        &--address {
+            @include formatText(DR, var(--fz-bd2), var(--lh-text-tag), 0.8px);
+        }
     }
 }

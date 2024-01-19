@@ -6,12 +6,19 @@
     // Padding
     --pd-container: 28px;
     --pd-page: 20px;
+    --gutter: 26px;
+
+    // Height
+    --height-header: 100px;
+
+    // Width
+    --width-container: 1198px;
 
     // Color
     --prim-cl: #0328EE;
     --white-cl: #ffffff;
     --black-cl: #010725;
-    --deep-blue: #010D50;
+    --deep-blue: #00116A;
     --error-cl: red;
 
 
@@ -45,7 +52,18 @@
     --ls-text-mn: 1.4px;
     --ls-text-tag: 0.7px;
 
+    // @include md {
+    //     --max-w-container: 1196px;
+    // }
+
+    // @include sm {
+    //     --max-w-container: 1016px;
+    // }
+
     @include xs {
+        --max-w-container: 100%;
+        --pd-container: 15px;
+
         // Font Size
         --fz-h1: 3.8rem;
         --fz-h2: 2.8rem;

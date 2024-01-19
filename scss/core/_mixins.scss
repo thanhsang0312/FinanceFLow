@@ -26,7 +26,7 @@
     -o-transition: $time;
 }
 
-@mixin formatText($ff, $fz, $lh, $ls, $cl : var(--black-cl)) {
+@mixin formatText($ff, $fz, $lh, $ls, $cl : var(--white-cl)) {
     font-family: $ff;
     font-size: $fz;
     line-height: $lh;
@@ -34,35 +34,36 @@
     color: $cl;
 }
 
-// Laptop lớn, screen <= 1440px 
+// MIXINS
+// Laptop lớn, screen <= 1440px (tuỳ yêu cầu thiết kế)
 @mixin lg {
     @media screen and (max-width: 1440px) {
         @content;
     }
 }
 
-// Laptop nhỏ hoặc tablet lớn, screen < 1200px 
+// Laptop nhỏ hoặc tablet lớn, screen < 1200px
 @mixin md {
     @media screen and (max-width: 1199.98px) {
         @content;
     }
 }
 
-// Tablet vừa, screen <= 992px 
+// Tablets vừa, screen <= 992px
 @mixin sm {
     @media screen and (max-width: 991.98px) {
         @content;
     }
 }
 
-// Tablet nhỏ hoặc phone xoay ngang , screen < 768px
+// Tablets nhỏ hoặc Phones quay ngang, screen < 768px
 @mixin xs {
     @media screen and (max-width: 767.98px) {
         @content;
     }
 }
 
-// Phone lớn, screen < 576px 
+// Phones lớn, screen < 576px
 @mixin xxs {
     @media screen and (max-width: 575.98px) {
         @content;

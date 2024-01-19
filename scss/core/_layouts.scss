@@ -8,6 +8,7 @@ html {
         margin: auto;
         @include formatText(DR, var(--fz-bd1), var(--lh-bd1), var(--ls-bd1), var(--white-cl));
         position: relative;
+        overflow-x: hidden;
 
         &.--disable-scroll {
             height: 100vh;
