@@ -9,6 +9,7 @@ function scrollTracker() {
         let coordY = window.scrollY;
         let percent = 100 * coordY / (windowHeight - window.innerHeight);
         scrollTracker.style.width = `${percent}%`;
+        // console.log(percent);
     })
 }
 scrollTracker();
@@ -69,6 +70,18 @@ function handleUserSay() {
             }
         }
     });
+    window.addEventListener('resize', function () {
+        if (window.innerWidth < 1200) {
+            flickity = new Flickity(item, {
+                groupCells: 1,
+            })
+        }
+        else {
+            flickity = new Flickity(item, {
+                groupCells: 2,
+            })
+        }
+    })
 
 }
 handleUserSay();
@@ -84,4 +97,44 @@ function handleHeader() {
         }
     })
 }
-handleHeader();
+// handleHeader();
+
+// Toggle menu mobile
+
+function handleMenuMobile() {
+    const hamburgerElement = document.querySelector('.header__btn--hamburger');
+
+
+    hamburgerElement.addEventListener('click', function () {
+        hamburgerElement.classList.toggle('--active');
+        document.querySelector('.nav-mobile').classList.toggle('active');
+        document.querySelector('body').classList.toggle('--disable-scroll');
+        document.querySelector('.header').classList.toggle('--bg');
+    })
+}
+handleMenuMobile();
+
+// Click to open video popup (Done)
+
+function openVideo() {
+    let btnVideo = document.querySelector('.started__video');
+    let pathElement = document.querySelector('.video__frame iframe');
+    const popupVideoElement = document.querySelector('.popupvideo');
+
+
+
+    btnVideo.setAttribute('data-key', 'JiOoPg_u6TU');
+    btnVideo.addEventListener('click', e => {
+        pathElement.setAttribute('src', `https://www.youtube.com/embed/${btnVideo.getAttribute('data-key')}?autoplay=1&mute=1`);
+        e.stopPropagation();
+        popupVideoElement.classList.toggle('--show');
+    })
+
+    document.addEventListener('click', function () {
+        popupVideoElement.classList.remove('--show');
+        pathElement.setAttribute('src', '');
+    })
+
+
+}
+openVideo();

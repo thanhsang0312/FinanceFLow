@@ -52,13 +52,23 @@
     --ls-text-mn: 1.4px;
     --ls-text-tag: 0.7px;
 
-    // @include md {
-    //     --max-w-container: 1196px;
-    // }
+    @include md {
+        --max-w-container: 1196px;
+    }
 
-    // @include sm {
-    //     --max-w-container: 1016px;
-    // }
+    @media screen and (max-width: 1019px) {
+        --fz-text-mn: 1.2rem;
+        --lh-text-mn: 1.4rem;
+        --ls-text-mn: 1px;
+
+        --fz-text-btn: 1.4rem;
+        --lh-text-btn: 1.4rem;
+        --ls-text-btn: 1.2px;
+    }
+
+    @include sm {
+        --max-w-container: 1016px;
+    }
 
     @include xs {
         --max-w-container: 100%;

@@ -133,9 +133,25 @@
                 <a href="https://cfdcircle.vn/" target="_blank" class="btn">
                     download app
                 </a>
+                <div class="header__btn--hamburger">
+                    <span></span>
+                </div>
             </div>
         </div>
     </header>
+    <nav class="nav-mobile">
+        <ul class="nav-mobile-menu">
+            <li><a href="#" class="active">home</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">pricing</a></li>
+            <li><a href="#">tokens</a></li>
+            <li><a href="#">blog</a></li>
+            <li><a href="#">contact us</a></li>
+            <a href="https://cfdcircle.vn/" target="_blank" class="btn">
+                download app
+            </a>
+        </ul>
+    </nav>
     <main class="main">
         <section class="hero">
             <div class="container">
@@ -159,7 +175,7 @@
                     </div>
                 </div>
                 <div class="hero__img">
-                    <img src="img/hero-planet.png" alt="">
+                    <img src="img/hero-planet.png" alt="" class="planet">
                     <img src="img/blur.png" alt="" class="blur">
                 </div>
             </div>
@@ -261,9 +277,11 @@
                         </div>
                     </div>
                     <div class="portfolio__content--item">
-                        <div class="icon">
+
+                        <picture class="icon">
+                            <source media="(max-width:576px)" srcset="img/iPhone14-mb.svg">
                             <img src="img/iPhone 14.png" alt="">
-                        </div>
+                        </picture>
                         <div class="info">
                             <h3 class="title heading --lv3">
                                 iOS & Android App
@@ -275,11 +293,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="portfolio__btn">
-                    <a href="https://cfdcircle.vn/" target="_blank" class="btn --higher">
-                        download app
-                    </a>
-                </div>
+                <a href="https://cfdcircle.vn/" target="_blank" class="btn --higher">
+                    download app
+                </a>
             </div>
         </section>
         <section class="rewards">
@@ -288,9 +304,10 @@
             </div>
             <div class="container">
                 <div class="rewards__thumb">
-                    <div class="rewards__thumb--img">
+                    <picture class="rewards__thumb--img">
+                        <source media="(max-width:1024px)" src="img/Phone.svg">
                         <img src="img/double-iphone14pro.png" alt="">
-                    </div>
+                    </picture>
                     <div class="rewards__thumb--content">
                         <div class="textbox --align-left">
                             <h2 class="heading --lv2">
@@ -330,9 +347,10 @@
                     </div>
                 </div>
                 <div class="rewards__thumb">
-                    <div class="rewards__thumb--img">
+                    <picture class="rewards__thumb--img">
+                        <source media="(max-width:1024px)" srcset="img/laptop-mb.svg">
                         <img src="img/laptop.svg" alt="">
-                    </div>
+                    </picture>
                     <div class="rewards__thumb--content">
                         <div class="textbox --align-left">
                             <h2 class="heading --lv2">
@@ -376,23 +394,22 @@
         </section>
         <section class="possibilities">
             <div class="container">
-                <div class="possibilities__content">
-                    <div class="textbox --align-left">
-                        <h2 class="heading --lv2">
-                            Explore endless possibilities with FinanceFlow
-                        </h2>
-                        <p class="des">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat nulla suspendisse tortor
-                            aene.
-                        </p>
-                        <a href="https://cfdcircle.vn/" target="_blank" class="btn --white --higher">
-                            download app
-                        </a>
-                    </div>
+                <div class="textbox --align-left">
+                    <h2 class="heading --lv2">
+                        Explore endless possibilities with FinanceFlow
+                    </h2>
+                    <p class="des">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat nulla suspendisse tortor
+                        aene.
+                    </p>
+                    <a href="https://cfdcircle.vn/" target="_blank" class="btn --white --higher">
+                        download app
+                    </a>
                 </div>
-                <div class="possibilities__thumb">
+                <picture class="possibilities__thumb">
+                    <source media="(max-width:992px)" srcset="img/iphone-crop-mobile.svg">
                     <img src="img/double-iphone14pro-crop.png" alt="">
-                </div>
+                </picture>
             </div>
         </section>
         <section class="users">
@@ -951,6 +968,21 @@
             </div>
         </div>
     </footer>
+
+    <div class="popupvideo">
+        <div class="popupvideo__inner">
+            <div class="popupvideo__inner--iframe">
+                <!-- <div class="video__closebtn">
+                    <img src="img/icon-close.svg" alt="">
+                </div> -->
+                <div class="video__frame">
+                    <iframe width="100%" height="100%" src="" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Script -->
     <script src="dest/jsmain.min.js"></script>

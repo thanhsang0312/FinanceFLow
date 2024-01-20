@@ -13,6 +13,14 @@
         }
     }
 
+    @include xs {
+        &__top {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
     &__middle {
         padding-top: 92px;
         padding-bottom: 125px;
@@ -53,6 +61,18 @@
                         }
                     }
                 }
+
+                @include xs {
+                    &__item {
+                        width: 50%;
+
+                        li {
+                            a {
+                                @include formatText(DR, 1.4rem, 1.6rem, 1.4px);
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -88,6 +108,40 @@
                 }
             }
         }
+
+        @include md {
+            &--download {
+                grid-column: 7/13;
+            }
+        }
+
+        @include sm {
+            &--download {
+                grid-column: 6/13;
+            }
+        }
+
+        @media screen and (max-width:828px) {
+            &--download {
+                grid-column: 5/13;
+            }
+        }
+    }
+
+    @include xs {
+        &__middle {
+            grid-template-columns: 1fr;
+
+            &--menu {
+                grid-row: 1/2;
+                grid-column: 1/2;
+            }
+
+            &--download {
+                grid-row: 2/3;
+                grid-column: 1/2;
+            }
+        }
     }
 
     &__bottom {
@@ -113,6 +167,12 @@
                 opacity: 1;
                 visibility: visible;
             }
+        }
+    }
+
+    @include xs {
+        &__bottom {
+            justify-content: center;
         }
     }
 }
