@@ -12,6 +12,7 @@
     padding: 0 32px;
     border-radius: 80px;
     width: fit-content;
+    white-space: nowrap;
     @include durationTime(0.3s);
 
     &.--higher {
@@ -34,11 +35,13 @@
 
     &.--align-center {
         text-align: center;
-        // max-width: 50%;
-        // margin: 0 auto;
 
         .heading {
             margin-bottom: 13px;
+        }
+
+        .des {
+            text-align: center;
         }
     }
 
@@ -59,6 +62,14 @@
         gap: 28px;
         margin-top: 42px;
     }
+
+    .number {
+        @include formatText(DB, 2.8rem, 3rem, 0.28px);
+    }
+
+    .big-number {
+        @include formatText(DB, 18rem, 16rem, 0, var(--prim-cl));
+    }
 }
 
 .heading {
@@ -72,7 +83,7 @@
     }
 
     &.--lv3 {
-        @include formatText(DB, var(--fz-label), var(--lh-label), var(--ls-label));
+        @include formatText(DB, var(--fz-h3), var(--lh-h3), var(--ls-h3));
         text-transform: uppercase;
     }
 
@@ -132,5 +143,180 @@
         &--address {
             @include formatText(DR, var(--fz-bd2), var(--lh-text-tag), 0.8px);
         }
+    }
+}
+
+.tag {
+    height: 36px;
+    padding: 0 14px;
+    width: fit-content;
+    border-radius: 1000px;
+    background-color: var(--prim-cl);
+    @include formatText(DM, var(--fz-text-tag), var(--lh-text-tag), var(--ls-text-tag));
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+.tabs {
+    display: flex;
+    gap: 16px;
+
+    &__item {
+        background: rgba(255, 255, 255, 0.10);
+        @include formatText(DR, var(--fz-bd2), var(--lh-bd2), var(--ls-bd2), var(--white-cl));
+        padding: 0 24px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        border-radius: 80px;
+        cursor: pointer;
+        @include durationTime(0.3s);
+
+        &.active {
+            background-color: var(--prim-cl);
+        }
+
+        &:hover {
+            background-color: var(--prim-cl);
+        }
+    }
+
+    @include xxs {
+        flex-direction: column;
+        width: 100%;
+
+        &__item {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+}
+
+.subscribe {
+    background-color: var(--prim-cl);
+    padding: 84px 0;
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--gutter);
+        align-items: center;
+    }
+
+    &__content {
+        grid-column: 1/8;
+        grid-row: 1/2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+
+        &--icon {
+            flex-shrink: 0;
+        }
+    }
+
+    @include xs {
+        &__content {
+            flex-direction: column;
+        }
+    }
+
+    &__form {
+        grid-column: 8/13;
+        grid-row: 1/2;
+        height: 80px;
+
+        &--mail {
+            height: 100%;
+            width: 100%;
+            display: inline-block;
+            position: relative;
+
+            #email {
+                height: 100%;
+                width: 100%;
+                border-radius: 100px;
+                padding-right: 160px;
+                padding-left: 16px;
+
+                &::placeholder {
+                    color: var(--black-cl);
+                }
+            }
+
+            #mail-btn {
+                height: 64px;
+                position: absolute;
+                right: 8px;
+                top: 50%;
+                transform: translateY(-50%);
+                border-radius: 100px;
+                @include formatText(DB, 1.4rem, 1.6rem, 1.6px);
+                text-transform: uppercase;
+                background-color: var(--prim-cl);
+                padding: 0 26px;
+                cursor: pointer;
+                @include durationTime(0.3s);
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+
+            @include xs {
+                #mail-btn {
+                    position: initial;
+                    top: initial;
+                    right: initial;
+                    background-color: #031FB4;
+                    transform: initial;
+                    width: 100%;
+                    margin-top: 20px;
+                }
+
+                #email {
+                    height: 80px;
+                    width: 100%;
+                }
+            }
+        }
+
+        @include xs {
+            &--mail {
+                width: 100%;
+                height: initial;
+            }
+        }
+    }
+
+    @include xs {
+        &__form {
+            height: initial;
+        }
+    }
+
+    @include sm {
+        .container {
+            grid-template-columns: 1fr;
+        }
+
+        &__content {
+            grid-column: initial;
+            grid-row: 1/2;
+        }
+
+        &__form {
+            grid-column: initial;
+            grid-row: 2/3;
+        }
+    }
+}
+
+@include xs {
+    .subscribe {
+        padding-top: 80px;
+        padding-bottom: 80px;
     }
 }

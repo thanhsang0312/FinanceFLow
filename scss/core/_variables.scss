@@ -19,12 +19,13 @@
     --white-cl: #ffffff;
     --black-cl: #010725;
     --deep-blue: #00116A;
-    --error-cl: red;
+    --error-cl: #EE0303;
 
 
     // Font Size
     --fz-h1: 6.6rem;
     --fz-h2: 4.2rem;
+    --fz-h3: 1.8rem;
     --fz-label: 1.8rem;
     --fz-text-btn: 1.6rem;
     --fz-bd1: 1.8rem;
@@ -35,6 +36,7 @@
     // Line height
     --lh-h1: 8rem;
     --lh-h2: 5.5rem;
+    --lh-h3: 2.6rem;
     --lh-label: 2.6rem;
     --lh-text-btn: 1.6rem;
     --lh-bd1: 3.2rem;
@@ -45,6 +47,7 @@
     // Letter spacing
     --ls-h1: -1px;
     --ls-h2: 0px;
+    --ls-h3: 0.9px;
     --ls-label: 0.9px;
     --ls-text-btn: 1.6px;
     --ls-bd1: 0px;

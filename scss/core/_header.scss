@@ -12,6 +12,13 @@
         background-color: var(--black-cl);
     }
 
+    &.--bg-dblue {
+        background-color: var(--deep-blue);
+        box-shadow: 0 8px 16px 0px rgba(0, 0, 0, 0.86);
+        -webkit-box-shadow: 0 8px 16px 0px rgba(0, 0, 0, 0.86);
+        -moz-box-shadow: 0 8px 16px 0px rgba(0, 0, 0, 0.86);
+    }
+
     .container {
         display: flex;
         justify-content: space-between;

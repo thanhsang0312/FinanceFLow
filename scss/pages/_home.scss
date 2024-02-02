@@ -22,6 +22,8 @@
 
 .homepage {
     .main {
+        overflow-x: hidden;
+
         .hero {
             height: 100vh;
             display: flex;
@@ -29,6 +31,11 @@
             position: relative;
             max-height: 960px;
             min-height: 640px;
+            overflow: hidden;
+
+            @include xs {
+                overflow: initial;
+            }
 
             .blur-out {
                 position: absolute;
@@ -43,12 +50,35 @@
                 align-items: center;
             }
 
+            @include xs {
+                .container {
+                    grid-template-columns: 1fr;
+                    gap: 16px;
+                }
+            }
+
             &__content {
                 max-width: 730px;
                 grid-column: 1/8;
                 grid-row: 1/2;
 
                 .textbox {
+                    .heading {
+                        max-width: 738px;
+
+                        @include xxs {
+                            max-width: 330px;
+                        }
+                    }
+
+                    .des {
+                        max-width: 568px;
+
+                        @include xxs {
+                            max-width: 320px;
+                        }
+                    }
+
                     .button {
                         .btn:first-child {
                             &:hover {
@@ -63,6 +93,17 @@
                             }
                         }
                     }
+
+                    @include xs {
+                        .button {
+                            flex-direction: column;
+
+                            .btn {
+                                width: 100%;
+                                justify-content: center;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -70,6 +111,7 @@
                 position: relative;
                 grid-row: 1/2;
                 grid-column: 8/13;
+                display: flex;
 
                 .blur {
                     position: absolute;
@@ -80,17 +122,66 @@
                     max-width: 200%;
                 }
 
-                @media screen and (max-width: 939px) {
+                @media screen and (max-width: 1296px) {
                     .planet {
-                        max-width: initial;
-                        width: 500px;
+                        img {
+                            width: 750px;
+                            max-width: initial;
+                        }
+                    }
+                }
+
+                @include sm {
+                    .planet {
+                        img {
+                            width: 600px;
+                            max-width: initial;
+                        }
+                    }
+                }
+            }
+
+            @media screen and (max-width: 834px) {
+                &__img {
+                    grid-column: 6/13;
+                }
+            }
+
+            @include xs {
+                &__content {
+                    grid-row: 1/2;
+                    grid-column: 1/2;
+
+                    // .textbox {
+                    //     .heading {}
+                    // }
+                }
+
+                &__img {
+                    grid-row: 2/3;
+                    grid-column: 1/2;
+                    justify-content: center;
+
+                    .planet {
+                        max-width: 100%;
                     }
                 }
             }
         }
 
+        @include xs {
+            .hero {
+                height: initial;
+                padding-top: calc(var(--height-header) + 100px);
+            }
+        }
+
         .apps {
             padding-bottom: 112px;
+
+            @include xs {
+                padding-top: 150px;
+            }
         }
 
         @media screen and (max-width: 428px) {
@@ -419,6 +510,17 @@
                 z-index: -1;
             }
 
+            .textbox {
+                .btn {
+                    @include durationTime(0.3s);
+
+                    &:hover {
+                        background-color: var(--white-cl);
+                        color: var(--prim-cl);
+                    }
+                }
+            }
+
             @include xxs {
                 .textbox {
                     flex-direction: column;
@@ -439,6 +541,11 @@
             &__say {
                 margin-top: 33px;
 
+                .flickity-page-dots {
+                    position: initial;
+                    margin-top: 10px;
+                }
+
                 &--item {
                     width: calc((var(--width-container)/2) - (var(--gutter)/2));
                     background-color: var(--deep-blue);
@@ -448,15 +555,19 @@
                     padding: 65px 50px 66px 50px;
                     margin: 0 14px;
                     @include durationTime(0.3s);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
 
                     &.is-selected {
                         opacity: 1;
                     }
                 }
 
-                @include xxs {
+                @include md {
                     &--item {
-                        width: calc(100vw - 30px);
+                        width: calc(var(--max-w-container) - (var(--pd-container)/2) - 4px);
+                        margin: 0 4px;
                     }
                 }
 
@@ -674,11 +785,26 @@
                                     color: var(--white-cl);
                                     text-transform: capitalize;
                                     @include formatText(DB, 2.2rem, 3.1rem, 0);
+                                    @include durationTime(0.3s);
+                                    @include overText(2);
+
+                                    @include xs {
+                                        @include overText(initial);
+                                    }
+
+
+                                    &:hover {
+                                        color: var(--prim-cl);
+                                    }
                                 }
                             }
 
                             &--des {
                                 @include overText(3);
+
+                                @include xs {
+                                    @include overText(initial);
+                                }
                             }
                         }
                     }
@@ -834,13 +960,32 @@
 
             .video__closebtn {
                 position: absolute;
-                top: 0px;
-                right: 0;
+                top: -10px;
+                right: -10px;
                 width: 30px;
                 height: 30px;
                 background-color: var(--prim-cl);
                 @include flexCenter;
                 cursor: pointer;
+                flex-direction: column;
+                border-radius: 50%;
+
+                &::before {
+                    content: '';
+                    width: 16px;
+                    height: 3px;
+                    background-color: var(--white-cl);
+                    transform: rotate(45deg);
+                }
+
+                &::after {
+                    content: '';
+                    width: 16px;
+                    height: 3px;
+                    background-color: var(--white-cl);
+                    margin-top: -3px;
+                    transform: rotate(-45deg);
+                }
             }
 
             .video__frame {

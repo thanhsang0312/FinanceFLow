@@ -25,15 +25,13 @@
         padding-top: 92px;
         padding-bottom: 125px;
         margin-bottom: 20px;
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: var(--gutter);
+        display: flex;
+        justify-content: space-between;
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 
 
         &--menu {
-            grid-row: 1/2;
-            grid-column: 1/4;
+            width: 100%;
 
             .title {
                 @include formatText(DB, var(--fz-label), var(--lh-label), var(--ls-label));
@@ -41,6 +39,7 @@
             }
 
             .menu {
+                max-width: calc((100%*3)/7);
                 padding-top: 36px;
                 margin-top: 38px;
                 display: flex;
@@ -49,6 +48,8 @@
 
                 &__item {
                     li {
+                        white-space: nowrap;
+
                         a {
                             text-transform: uppercase;
                             @include formatText(DR, var(--fz-text-mn), var(--lh-text-mn), var(--ls-text-mn));
@@ -79,11 +80,13 @@
         &--download {
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 40px;
-            padding: 44px 32px 44px 34px;
-            grid-row: 1/2;
-            grid-column: 8/13;
+
+            max-width: calc((100%*5)/12);
+
 
             .textbox {
+                padding: 44px 32px 44px 34px;
+
                 .button {
                     .btn {
                         display: flex;
@@ -105,44 +108,47 @@
                             }
                         }
                     }
+
+                    @include md {
+                        .btn {
+                            padding: 0 16px;
+                        }
+                    }
                 }
-            }
-        }
 
-        @include md {
-            &--download {
-                grid-column: 7/13;
-            }
-        }
+                @include sm {
+                    .button {
+                        flex-direction: column;
+                        align-items: center;
 
-        @include sm {
-            &--download {
-                grid-column: 6/13;
-            }
-        }
-
-        @media screen and (max-width:828px) {
-            &--download {
-                grid-column: 5/13;
+                        .btn {
+                            width: 100%;
+                            justify-content: center;
+                        }
+                    }
+                }
             }
         }
     }
 
     @include xs {
         &__middle {
-            grid-template-columns: 1fr;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
 
             &--menu {
-                grid-row: 1/2;
-                grid-column: 1/2;
+                .menu {
+                    max-width: initial;
+                }
             }
 
             &--download {
-                grid-row: 2/3;
-                grid-column: 1/2;
+                max-width: initial;
             }
         }
     }
+
 
     &__bottom {
         display: flex;
@@ -162,8 +168,11 @@
             border-radius: 50%;
             opacity: 0;
             visibility: hidden;
+            z-index: 20;
+            display: flex;
+            @include durationTime(0.3s);
 
-            &--active {
+            &.--active {
                 opacity: 1;
                 visibility: visible;
             }

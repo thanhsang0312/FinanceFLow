@@ -1,0 +1,42 @@
+.errorpage {
+    .main {
+        position: relative;
+
+        .blur-out {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            width: 1200px;
+        }
+
+        .error {
+            margin-top: var(--height-header);
+            padding-top: 160px;
+            padding-bottom: 160px;
+
+            .textbox {
+                max-width: 50%;
+                margin: 0 auto;
+
+                .button {
+                    justify-content: center;
+
+                    .btn:first-child {
+                        &:hover {
+                            background-color: var(--white-cl);
+                            color: var(--prim-cl);
+                        }
+                    }
+
+                    .btn {
+                        &:hover {
+                            background-color: var(--prim-cl);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

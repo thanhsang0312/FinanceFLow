@@ -1,0 +1,121 @@
+.pricingpage {
+    .main {
+        .pricing {
+            margin-top: var(--height-header);
+            padding-top: 68px;
+            padding-bottom: 225px;
+
+            .textbox {
+                max-width: 50%;
+                margin: 0 auto;
+            }
+
+            &__detail {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                align-items: center;
+                margin-top: 40px;
+                margin-bottom: 56px;
+
+                @media screen and (max-width: 947px) {
+                    grid-template-columns: 1fr 1fr;
+                    row-gap: 14px;
+                }
+
+                @include xxs {
+                    grid-template-columns: 1fr;
+                    gap: 38px;
+                    margin-bottom: 48px;
+                }
+
+                .icon {
+                    display: flex;
+                }
+
+                &--item {
+                    display: flex;
+                    align-items: center;
+                    gap: 24px;
+                }
+            }
+
+            &__list {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--gutter);
+
+                &--item {
+                    background-color: var(--deep-blue);
+                    border-radius: 40px;
+                    padding: 48px 30px 42px 32px;
+
+
+
+                    .info {
+                        padding-top: 16px;
+                        padding-bottom: 40px;
+
+                        &__dollar {
+                            @include formatText(DB, 4.2rem, 5.5rem, 0px);
+                        }
+                    }
+
+                    .feature {
+                        &__list {
+                            li {
+                                padding-left: 22px;
+                                position: relative;
+
+                                &::before {
+                                    content: '';
+                                    width: 6px;
+                                    height: 6px;
+                                    background-color: var(--prim-cl);
+                                    border-radius: 50%;
+                                    position: absolute;
+                                    left: 0;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                }
+                            }
+                        }
+                    }
+
+                    .btn {
+                        margin-top: 54px;
+                        width: 100%;
+                        justify-content: center;
+                        @include durationTime(0.3s);
+
+                        &:hover {
+                            background-color: var(--white-cl);
+                            color: var(--prim-cl);
+                        }
+                    }
+                }
+            }
+        }
+
+        @include xs {
+            .pricing {
+                padding-top: 48px;
+                padding-bottom: 80px;
+
+                .textbox {
+                    margin: initial;
+                    max-width: initial;
+                    text-align: initial;
+
+                    .des {
+                        text-align: initial;
+                    }
+                }
+
+                &__list {
+                    grid-template-columns: 1fr;
+                    gap: 16px;
+                }
+            }
+        }
+    }
+}

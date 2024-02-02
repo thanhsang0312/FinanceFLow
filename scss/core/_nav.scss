@@ -15,6 +15,15 @@
     background-color: var(--black-cl);
     @include durationTime(0.3s);
 
+    .blur-mobile {
+        position: absolute;
+        top: -30%;
+        left: -50%;
+        width: 200%;
+        z-index: -1;
+        pointer-events: none;
+    }
+
     &-menu {
         display: flex;
         flex-direction: column;
