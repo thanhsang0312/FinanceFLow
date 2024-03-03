@@ -1,0 +1,78 @@
+@mixin images {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@mixin flexCenter ($flex: flex, $jc: center, $ai: center) {
+    display: $flex;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+@mixin overText($line) {
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin durationTime($time) {
+    transition: $time;
+    -webkit-transition: $time;
+    -moz-transition: $time;
+    -ms-transition: $time;
+    -o-transition: $time;
+}
+
+@mixin formatText($ff, $fz, $lh, $ls, $cl : var(--white-cl)) {
+    font-family: $ff;
+    font-size: $fz;
+    line-height: $lh;
+    letter-spacing: $ls;
+    color: $cl;
+}
+
+// MIXINS
+// Laptop lớn, screen <= 1440px (tuỳ yêu cầu thiết kế)
+@mixin lg {
+    @media screen and (max-width: 1440px) {
+        @content;
+    }
+}
+
+// Laptop nhỏ hoặc tablet lớn, screen < 1200px
+@mixin md {
+    @media screen and (max-width: 1199.98px) {
+        @content;
+    }
+}
+
+// Tablets vừa, screen <= 992px
+@mixin sm {
+    @media screen and (max-width: 991.98px) {
+        @content;
+    }
+}
+
+// Tablets nhỏ hoặc Phones quay ngang, screen < 768px
+@mixin xs {
+    @media screen and (max-width: 767.98px) {
+        @content;
+    }
+}
+
+// Phones lớn, screen < 576px
+@mixin xxs {
+    @media screen and (max-width: 575.98px) {
+        @content;
+    }
+}
+
+// Phones nhỏ, screen < 376px - tuỳ yêu cầu
+@mixin xxxs {
+    @media screen and (max-width: 375.98px) {
+        @content;
+    }
+}

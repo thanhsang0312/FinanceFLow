@@ -1,0 +1,337 @@
+.loading {
+    display: none;
+}
+
+.btn {
+    @include formatText(DB, var(--fz-text-btn), var(--lh-text-btn), var(--ls-text-btn), var(--white-cl));
+    text-transform: uppercase;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    background-color: var(--prim-cl);
+    padding: 0 32px;
+    border-radius: 80px;
+    width: fit-content;
+    white-space: nowrap;
+    @include durationTime(0.3s);
+
+    &.--higher {
+        height: 70px;
+    }
+
+    &.--grey {
+        background-color: rgba(255, 255, 255, 0.10);
+    }
+
+    &.--white {
+        background-color: var(--white-cl);
+        color: var(--prim-cl);
+        margin-top: 32px;
+    }
+}
+
+.textbox {
+
+
+    &.--align-center {
+        text-align: center;
+
+        .heading {
+            margin-bottom: 13px;
+        }
+
+        .des {
+            text-align: center;
+        }
+    }
+
+    &.--align-left {
+        .heading {
+            margin-bottom: 20px;
+        }
+    }
+
+    &.--space-between {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .button {
+        display: flex;
+        gap: 28px;
+        margin-top: 42px;
+    }
+
+    .number {
+        @include formatText(DB, 2.8rem, 3rem, 0.28px);
+    }
+
+    .big-number {
+        @include formatText(DB, 18rem, 16rem, 0, var(--prim-cl));
+    }
+}
+
+.heading {
+    &.--lv1 {
+        @include formatText(DB, var(--fz-h1), var(--lh-h1), var(--ls-h1), var(--white-cl));
+        white-space: nowrap;
+    }
+
+    &.--lv2 {
+        @include formatText(DB, var(--fz-h2), var(--lh-h2), var(--ls-h2), var(--white-cl));
+    }
+
+    &.--lv3 {
+        @include formatText(DB, var(--fz-h3), var(--lh-h3), var(--ls-h3));
+        text-transform: uppercase;
+    }
+
+    &.--lv5 {
+        @include formatText(DB, var(--fz-bd2), var(--lh-text-tag), 0.8px);
+        text-transform: uppercase;
+    }
+}
+
+.apps__lists {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 33px;
+}
+
+@media screen and (max-width: 834px) {
+    .apps__lists {
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+
+        &--icon {
+            display: flex;
+        }
+    }
+}
+
+.author {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    &__avatar {
+        aspect-ratio: 1/1;
+        overflow: hidden;
+        border-radius: 50%;
+
+        img {
+            @include images;
+        }
+    }
+
+    &__info {
+
+        &--name {
+            margin-bottom: 6px;
+        }
+
+        &--address {
+            @include formatText(DR, var(--fz-bd2), var(--lh-text-tag), 0.8px);
+        }
+    }
+}
+
+.tag {
+    height: 36px;
+    padding: 0 14px;
+    width: fit-content;
+    border-radius: 1000px;
+    background-color: var(--prim-cl);
+    @include formatText(DM, var(--fz-text-tag), var(--lh-text-tag), var(--ls-text-tag));
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+.tabs {
+    display: flex;
+    gap: 16px;
+
+    &__item {
+        background: rgba(255, 255, 255, 0.10);
+        @include formatText(DR, var(--fz-bd2), var(--lh-bd2), var(--ls-bd2), var(--white-cl));
+        padding: 0 24px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        border-radius: 80px;
+        cursor: pointer;
+        @include durationTime(0.3s);
+
+        &.active {
+            background-color: var(--prim-cl);
+        }
+
+        &:hover {
+            background-color: var(--prim-cl);
+        }
+    }
+
+    @include xxs {
+        flex-direction: column;
+        width: 100%;
+
+        &__item {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+}
+
+.subscribe {
+    background-color: var(--prim-cl);
+    padding: 84px 0;
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--gutter);
+        align-items: center;
+    }
+
+    &__content {
+        grid-column: 1/8;
+        grid-row: 1/2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+
+        &--icon {
+            flex-shrink: 0;
+        }
+    }
+
+    @include xs {
+        &__content {
+            flex-direction: column;
+        }
+    }
+
+    &__form {
+        grid-column: 8/13;
+        grid-row: 1/2;
+        height: 80px;
+
+        &--mail {
+            height: 100%;
+            width: 100%;
+            display: inline-block;
+            position: relative;
+
+            #email {
+                height: 100%;
+                width: 100%;
+                border-radius: 100px;
+                padding-right: 160px;
+                padding-left: 16px;
+
+                &::placeholder {
+                    @include formatText(DR, var(--fz-bd2), var(--lh-bd2), 0, var(--black-cl));
+                }
+            }
+
+            #mail-btn {
+                height: 64px;
+                position: absolute;
+                right: 8px;
+                top: 50%;
+                transform: translateY(-50%);
+                border-radius: 100px;
+                @include formatText(DB, 1.4rem, 1.6rem, 1.6px);
+                text-transform: uppercase;
+                background-color: var(--prim-cl);
+                padding: 0 26px;
+                cursor: pointer;
+                @include durationTime(0.3s);
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+
+            @include xs {
+                #mail-btn {
+                    position: initial;
+                    top: initial;
+                    right: initial;
+                    background-color: #031FB4;
+                    transform: initial;
+                    width: 100%;
+                    margin-top: 20px;
+                }
+
+                #email {
+                    height: 80px;
+                    width: 100%;
+                }
+            }
+        }
+
+        @include xs {
+            &--mail {
+                width: 100%;
+                height: initial;
+            }
+        }
+    }
+
+    @include xs {
+        &__form {
+            height: initial;
+        }
+    }
+
+    @include sm {
+        .container {
+            grid-template-columns: 1fr;
+        }
+
+        &__content {
+            grid-column: initial;
+            grid-row: 1/2;
+        }
+
+        &__form {
+            grid-column: initial;
+            grid-row: 2/3;
+        }
+    }
+}
+
+@include xs {
+    .subscribe {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+}
+
+.error-message {
+    @include formatText(DR, 1.8rem, normal, normal, var(--error-cl));
+    display: none;
+
+    &.--is-empty {
+        display: flex;
+        transform: translateY(13%);
+    }
+}

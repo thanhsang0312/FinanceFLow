@@ -1,0 +1,197 @@
+.header {
+    height: var(--height-header);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 8;
+    padding: 21px 0;
+    @include durationTime(0.3s);
+
+    &.--bg {
+        background-color: var(--black-cl);
+    }
+
+    &.--bg-dblue {
+        background-color: var(--deep-blue);
+        box-shadow: 0 8px 16px 0px rgba(0, 0, 0, 0.86);
+        -webkit-box-shadow: 0 8px 16px 0px rgba(0, 0, 0, 0.86);
+        -moz-box-shadow: 0 8px 16px 0px rgba(0, 0, 0, 0.86);
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
+
+    &__content {
+        display: flex;
+        height: 100%;
+
+        &--logo {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding-right: 32px;
+            border-right: 1px solid var(--deep-blue);
+
+            a {
+                display: flex;
+            }
+        }
+
+        &--nav {
+            display: flex;
+            align-items: center;
+            margin-left: 19px;
+
+            li {
+                position: relative;
+
+                a {
+                    text-transform: uppercase;
+                    @include formatText(DM, var(--fz-text-mn), var(--lh-text-mn), var(--ls-text-mn), var(--white-cl));
+                    padding: 5px 14px;
+
+                    &::after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        left: 14px;
+                        bottom: 5px;
+                        height: 1px;
+                        width: calc(100% - 28px);
+                        background-color: var(--white-cl);
+                        transform: scaleX(0);
+                        transform-origin: right;
+                        @include durationTime(0.5s);
+                        transition-property: transform;
+                    }
+
+                    &.active {
+                        // color: var(--white-cl);
+                        position: relative;
+
+                        &::after {
+                            transform: scaleX(1);
+                            transform-origin: left;
+                        }
+                    }
+
+                    &:hover {
+                        &::after {
+                            transform: scaleX(1);
+                            transform-origin: left;
+                        }
+                    }
+                }
+
+                &:not(:first-child) {
+                    a {
+                        position: relative;
+
+                        &:hover {
+                            &::after {
+                                transform: scaleX(1);
+                                transform-origin: left;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: 939px) {
+            &--nav {
+                display: none;
+            }
+
+            &--logo {
+                border-right: initial;
+            }
+        }
+    }
+
+    &__btn {
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        .btn {
+            &:hover {
+                background-color: var(--white-cl);
+                color: var(--prim-cl);
+            }
+        }
+
+        &--hamburger {
+            display: none;
+        }
+
+        @media screen and (max-width: 939px) {
+            .btn {
+                display: none;
+            }
+
+            &--hamburger {
+                @include flexCenter;
+                height: 45px;
+                width: 45px;
+                position: relative;
+                background-color: var(--prim-cl);
+                border-radius: 50%;
+                cursor: pointer;
+
+                span {
+                    position: relative;
+                    display: block;
+                    width: 24px;
+                    height: 3px;
+                    background-color: var(--white-cl);
+                    opacity: 1;
+                    transition: 0.3s;
+                }
+
+                &::before {
+                    content: '';
+                    width: 24px;
+                    height: 3px;
+                    background-color: var(--white-cl);
+                    position: absolute;
+                    top: 25%;
+                    transform: rotate(0);
+                    transition: 0.3s;
+                }
+
+                &::after {
+                    content: '';
+                    width: 24px;
+                    height: 3px;
+                    background-color: var(--white-cl);
+                    position: absolute;
+                    bottom: 25%;
+                    transition: 0.3s;
+                }
+
+                &.--active {
+                    span {
+                        opacity: 0;
+                        pointer-events: none;
+                    }
+
+                    &::before {
+                        top: 20px;
+                        transform: rotate(45deg);
+                    }
+
+                    &::after {
+                        bottom: 22px;
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+        }
+    }
+}

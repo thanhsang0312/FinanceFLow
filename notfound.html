@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Title -->
+    <title>FinanceFlow - CFD Circle | Đào tạo lập trình thực chiến</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Meta tag -->
+    <meta charset="UTF-8">
+    <meta name="title" content="FinanceFlow - CFD Circle | Đào tạo lập trình thực chiến">
+    <meta name="description"
+        content="FinanceFlow là dự án được hoàn thành trong khóa học lập trình front-end Web Responsive tại CFD Circle">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Sang">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="canonical" href="">
+    <!-- Meta tag Facebook -->
+    <meta property="og:url" content="https://cfdcircle.vn" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="FinanceFlow - CFD Circle | Đào tạo lập trình thực chiến" />
+    <meta property="og:description"
+        content="FinanceFlow là dự án được hoàn thành trong khóa học lập trình front-end Web Responsive tại CFD Circle" />
+    <meta property="og:site_name" content="CFD Circle">
+    <meta property="og:image" content="thumbnail-fb.jpg" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="dest/fancybox.css">
+    <link rel="stylesheet" href="dest/style.min.css">
+    <link rel="stylesheet" href="dest/fonts.css">
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: var(--white-cl);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(3, 40, 238, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--prim-cl);
+        }
+
+        /* Loading Page */
+        .loading {
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            position: fixed;
+            z-index: 999;
+            background-color: var(--black-cl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            opacity: 1;
+            visibility: visible;
+            gap: 15px;
+        }
+
+        .loading.--is-loaded {
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            -webkit-transition: 0.3s;
+        }
+
+        .loading .loading__inner {
+            width: 140px;
+            height: 5px;
+            border-radius: 10px;
+            background-color: var(--white-cl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading .loading__percent {
+            font-family: pb;
+            font-size: var(--fz-btn);
+            line-height: normal;
+            letter-spacing: var(--ls-btn);
+            color: var(--white-cl);
+        }
+
+        .loading .loading__inner .loading__inner--progress {
+            width: 0%;
+            height: 100%;
+            position: absolute;
+            background-color: var(--prim-cl);
+        }
+    </style>
+</head>
+
+<body class="errorpage" style="background-color: var(--black-cl);">
+    <!-- Scroll timeline tracker -->
+    <div class="scrolltracker">
+        <div class="scrolltracker__bar">
+            <span class="scrolltracker__bar--progress"></span>
+        </div>
+    </div>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="header__content--logo">
+                    <a href="./">
+                        <img src="img/logo-main.svg" alt="">
+                    </a>
+                </div>
+                <ul class="header__content--nav">
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="about.html">about</a></li>
+                    <li><a href="pricing.html">pricing</a></li>
+                    <li><a href="tokens.html">tokens</a></li>
+                    <li><a href="blog.html">blog</a></li>
+                    <li><a href="contact.html">contact us</a></li>
+                </ul>
+            </div>
+            <div class="header__btn">
+                <a href="https://cfdcircle.vn/" target="_blank" class="btn">
+                    download app
+                </a>
+                <div class="header__btn--hamburger">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="nav-mobile">
+        <div class="blur-mobile">
+            <img src="img/blur.png" alt="">
+        </div>
+        <ul class="nav-mobile-menu">
+            <li><a href="index.html">home</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="pricing.html">pricing</a></li>
+            <li><a href="tokens.html">tokens</a></li>
+            <li><a href="blog.html">blog</a></li>
+            <li><a href="contact.html">contact us</a></li>
+            <a href="https://cfdcircle.vn/" target="_blank" class="btn">
+                download app
+            </a>
+        </ul>
+    </nav>
+    <main class="main">
+        <div class="blur-out">
+            <img srcset="img/blur.png 2x" alt="">
+        </div>
+        <section class="error">
+            <div class="container">
+                <div class="textbox --align-center">
+                    <p class="big-number">404</p>
+                    <h2 class="heading --lv2">
+                        Page Not Found
+                    </h2>
+                    <p class="des">
+                        The page you're looking for can't be found. Double-check the URL and try again. Or click the
+                        button below.
+                    </p>
+                    <div class="button">
+                        <a href="pricing.html" class="btn --higher">View Pricing</a>
+                        <a href="index.html" class="btn --higher --grey">Go Home</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Script -->
+    <script src="dest/jsmain.min.js"></script>
+    <script src="dest/main.js"></script>
+</body>
+
+</html>
